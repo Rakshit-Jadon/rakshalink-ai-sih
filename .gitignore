@@ -1,0 +1,19 @@
+# Vercel & IDE
+.vercel
+.idea
+.vscode
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.jks
+*.keystore
+
+# Node & Build artifacts
+node_modules/
+dist/
+build/
+*.log

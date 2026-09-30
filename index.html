@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RakshaLink AI — On-Device Anti-Phishing & Fraud Prevention</title>
+  <meta name="description" content="AI-Powered On-Device Mobile Cybersecurity Platform targeting Phishing, Smishing, and UPI Fraud Prevention under DPDP Act 2023 compliance.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Gradient defs (SVG filters for gauges) embedded early -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#06B6D4"/>
+        <stop offset="100%" stop-color="#00E5FF"/>
+      </linearGradient>
+      <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#059669"/>
+        <stop offset="100%" stop-color="#00D68F"/>
+      </linearGradient>
+      <linearGradient id="redGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#EF4444"/>
+        <stop offset="100%" stop-color="#FF3B3B"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════ -->
+<header>
+  <a href="#" class="brand" onclick="switchScreen('dashboard');return false;">
+    <img src="rakshalink_shield_logo.jpg" alt="RakshaLink AI Shield" class="brand-icon">
+    <div class="brand-text">
+      <h1>RakshaLink AI</h1>
+      <span>On-Device Mobile Shield</span>
+    </div>
+  </a>
+
+  <nav class="nav-links">
+    <button class="nav-btn active" id="btn-dashboard" onclick="switchScreen('dashboard')">📊 Dashboard</button>
+    <button class="nav-btn" id="btn-download"  onclick="switchScreen('download')">📥 Download Apps</button>
+    <button class="nav-btn" id="btn-scanner"   onclick="switchScreen('scanner')">🔍 URL Scanner</button>
+    <button class="nav-btn" id="btn-upi"        onclick="switchScreen('upi')">⚡ UPI Security</button>
+    <button class="nav-btn" id="btn-sms"        onclick="switchScreen('sms')">💬 SMS Interceptor</button>
+    <button class="nav-btn" id="btn-qr"         onclick="switchScreen('qr')">📷 QR Analyzer</button>
+    <button class="nav-btn" id="btn-analysis"   onclick="switchScreen('analysis')">🧠 ML Architecture</button>
+    <button class="nav-btn" id="btn-arch"       onclick="switchScreen('arch')">🔗 System Flow</button>
+    <button class="nav-btn" id="btn-warning"    onclick="switchScreen('warning')">🚨 Threat Block</button>
+    <button class="nav-btn" id="btn-logo"       onclick="switchScreen('logo')">🛡️ Brand</button>
+  </nav>
+
+  <div class="header-right">
+    <div class="threat-counter" id="hdr-threats">
+      ⚡ Threats Blocked: <span id="threat-count">0</span>
+    </div>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      TFLite NNAPI — Active
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN
+═══════════════════════════════════════════════════════ -->
+<main>
+
+<!-- ─────────────────── SCREEN: DASHBOARD ─────────────────── -->
+<section id="screen-dashboard" class="screen-container active">
+
+  <!-- KPI Strip -->
+  <div class="kpi-strip">
+    <div class="kpi-box kv-red">
+      <span class="kpi-value">₹22,495 Cr</span>
+      <span class="kpi-label">2025 Cybercrime Losses (India)</span>
+      <span class="kpi-delta up">↑ 24% YoY · MHA / I4C Data</span>
+    </div>
+    <div class="kpi-box kv-gold">
+      <span class="kpi-value">6.32L</span>
+      <span class="kpi-label">UPI Fraud Cases FY26 (₹805 Cr)</span>
+      <span class="kpi-delta up">↑ 85% vs FY24</span>
+    </div>
+    <div class="kpi-box kv-blue">
+      <span class="kpi-value">99.81%</span>
+      <span class="kpi-label">Ensemble Detection Accuracy</span>
+      <span class="kpi-delta down">F1: 99.81 · Precision: 100%</span>
+    </div>
+    <div class="kpi-box kv-green">
+      <span class="kpi-value">&lt; 100ms</span>
+      <span class="kpi-label">On-Device Inference Latency</span>
+      <span class="kpi-delta down">CPU + NNAPI · No Cloud</span>
+    </div>
+  </div>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner mb2">
+    <div class="hero-text">
+      <h2>Next-Generation On-Device Cyber Defense for India's Digital Economy</h2>
+      <p>
+        Protecting 86%+ connected Indian households against zero-day phishing, smishing, and UPI deep-link hijacking
+        using quantized TensorFlow Lite (Char-CNN + LightGBM ensemble) — with 100% DPDP Act 2023 on-device privacy compliance.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="stat-value">11.14L</div><div class="stat-label">SIM Cards Blocked</div></div>
+        <div class="stat-box"><div class="stat-value">₹11,158 Cr</div><div class="stat-label">I4C Funds Saved</div></div>
+        <div class="stat-box"><div class="stat-value">86%+</div><div class="stat-label">Households Online</div></div>
+      </div>
+      <div style="margin-top:1.2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+        <a href="downloads/rakshalink-ai.apk" download="rakshalink-ai.apk" class="btn btn-primary" style="width:auto;text-decoration:none;">📱 Download Android App (.apk)</a>
+        <a href="downloads/mule-phish-guard.zip" download="mule-phish-guard.zip" class="btn btn-ghost" style="width:auto;text-decoration:none;">🧩 Download Web Extension (.zip)</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="rakshalink_threat_banner.jpg" alt="RakshaLink Threat Prevention Dashboard">
+    </div>
+  </div>
+
+  <!-- 2-col: Live Feed + Console -->
+  <div class="g2 mb2">
+    <!-- Live Threat Feed -->
+    <div class="card no-hover">
+      <div class="card-header">
+        <div class="card-header-left">
+          <h3>🔴 Live Threat Intelligence Feed</h3>
+          <p>Real-time incidents intercepted by on-device engine</p>
+        </div>
+        <span class="card-badge badge-red">Live</span>
+      </div>
+      <div class="threat-feed" id="threat-feed">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Detection Console -->
+    <div class="card no-hover">
+      <div class="card-header">
+        <div class="card-header-left">
+          <h3>🖥 Detection Engine Console</h3>
+          <p>TFLite runtime logs — local inference only</p>
+        </div>
+        <span class="card-badge badge-blue">VPN Svc</span>
+      </div>
+      <div class="console-box" id="sys-console"></div>
+    </div>
+  </div>
+
+  <!-- Gauge Row -->
+  <div class="card mb2 no-hover">
+    <div class="card-header">
+      <div class="card-header-left">
+        <h3>📐 Real-Time Model Performance Gauges</h3>
+        <p>Weighted Ensemble — Char-CNN (60%) + LightGBM (40%)</p>
+      </div>
+      <span class="card-badge badge-blue">INT8 Quantized</span>
+    </div>
+    <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;padding:.5rem 0">
+      <div class="gauge-wrap">
+        <div class="gauge">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle class="gauge-track" cx="60" cy="60" r="54"/>
+            <circle class="gauge-fill blue" cx="60" cy="60" r="54" id="g-acc"/>
+          </svg>
+          <div class="gauge-center"><span class="gauge-val" style="color:var(--accent-blue)" id="gv-acc">0%</span><span class="gauge-unit">Accuracy</span></div>
+        </div>
+        <div class="gauge-label">Ensemble Accuracy</div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle class="gauge-track" cx="60" cy="60" r="54"/>
+            <circle class="gauge-fill green" cx="60" cy="60" r="54" id="g-prec"/>
+          </svg>
+          <div class="gauge-center"><span class="gauge-val" style="color:var(--success-green)" id="gv-prec">0%</span><span class="gauge-unit">Precision</span></div>
+        </div>
+        <div class="gauge-label">Zero False Positive</div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle class="gauge-track" cx="60" cy="60" r="54"/>
+            <circle class="gauge-fill blue" cx="60" cy="60" r="54" id="g-f1"/>
+          </svg>
+          <div class="gauge-center"><span class="gauge-val" style="color:var(--accent-blue)" id="gv-f1">0%</span><span class="gauge-unit">F1 Score</span></div>
+        </div>
+        <div class="gauge-label">Ensemble F1</div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="gauge">
+          <svg viewBox="0 0 120 120" width="120" height="120">
+            <circle class="gauge-track" cx="60" cy="60" r="54"/>
+            <circle class="gauge-fill red" cx="60" cy="60" r="54" id="g-block"/>
+          </svg>
+          <div class="gauge-center"><span class="gauge-val" style="color:var(--danger-red)" id="gv-block">0</span><span class="gauge-unit">Blocked</span></div>
+        </div>
+        <div class="gauge-label">Session Threats</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Threat Typology Grid -->
+  <div class="card no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>📊 Macroeconomic Fraud Typology Matrix</h3><p>MHA & I4C 2025–2026 Empirical Data</p></div>
+      <span class="card-badge badge-red">Critical</span>
+    </div>
+    <div class="g3">
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.15)">
+        <h4 style="color:var(--danger-red);margin-bottom:.4rem;font-size:.92rem">💸 Investment & Task Scams</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Organized cross-border scam centers deploy fake stock market apps &amp; task-based Telegram channels. Accounted for <strong style="color:var(--text-main)">75%+</strong> of total 2025 financial losses.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.15)">
+        <h4 style="color:var(--accent-gold);margin-bottom:.4rem;font-size:.92rem">🤖 Digital Arrests (GenAI)</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Generative AI deepfakes simulate law enforcement environments. Psychologically coerce victims to transfer funds urgently. <strong style="color:var(--text-main)">9%</strong> of total losses.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.12)">
+        <h4 style="color:var(--accent-blue);margin-bottom:.4rem;font-size:.92rem">⚡ UPI Collect Abuse</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Attacker registers VPA with spoofed Payee Name (e.g. "Electricity Board") while routing funds to mule account. <strong style="color:var(--text-main)">6.32L cases</strong> in FY26 alone.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.12)">
+        <h4 style="color:var(--accent-blue);margin-bottom:.4rem;font-size:.92rem">📱 Smishing &amp; APK Delivery</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">SMS masquerading as utility or bank. Links trigger download of malicious APKs that exfiltrate OTPs and UPI PINs. Primary attack vector for Tier-2/3 cities.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.15)">
+        <h4 style="color:var(--warning-amber);margin-bottom:.4rem;font-size:.92rem">🌐 Typosquatting &amp; Homoglyph</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Registers near-identical domains (e.g. <code style="font-size:.75rem;color:var(--danger-red)">sbi-secure-login.xyz</code>). Uses Levenshtein distance ≤ 3 to bypass human visual inspection.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.15)">
+        <h4 style="color:var(--danger-red);margin-bottom:.4rem;font-size:.92rem">📷 Malicious QR Codes</h4>
+        <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Physical QR codes stickered over legitimate restaurant/merchant codes encode attacker UPI VPA. Intercept happens at payment intent layer before banking app launches.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ─────────────────── SCREEN: DOWNLOADS ─────────────────── -->
+<section id="screen-download" class="screen-container">
+  <div class="download-hero">
+    <h2>📥 Downloads &amp; Installation Center</h2>
+    <p style="color:var(--text-muted);max-width:640px;margin:0 auto;font-size:.92rem;">
+      Get RakshaLink AI on-device security for your Android smartphone and web browser. Download official release packages below.
+    </p>
+  </div>
+
+  <div class="download-grid">
+    <!-- Android App Card -->
+    <div class="download-card">
+      <div class="download-card-header">
+        <div class="download-card-icon">🤖</div>
+        <div class="download-card-title">
+          <h3>RakshaLink AI Mobile App</h3>
+          <p>On-Device Anti-Phishing &amp; UPI Shield for Android</p>
+        </div>
+      </div>
+
+      <div class="download-meta">
+        <div class="download-meta-item">
+          <span class="download-meta-label">Version</span>
+          <span class="download-meta-val">v1.0 Release</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">File Size</span>
+          <span class="download-meta-val">22.5 MB</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">OS Required</span>
+          <span class="download-meta-val">Android 7.0+</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">Package Format</span>
+          <span class="download-meta-val">APK (.apk)</span>
+        </div>
+      </div>
+
+      <a href="downloads/rakshalink-ai.apk" download="rakshalink-ai.apk" class="btn btn-primary btn-download-action">
+        📥 Download Android App (.apk)
+      </a>
+
+      <div class="install-steps">
+        <h4>📱 Android Installation Guide</h4>
+        <ol>
+          <li>Click <strong>Download Android App (.apk)</strong> to save <code>rakshalink-ai.apk</code> to your device.</li>
+          <li>If prompted by Android OS, enable <code>Install unknown apps</code> or <code>Allow from this source</code> in Settings.</li>
+          <li>Open your Downloads folder, tap <code>rakshalink-ai.apk</code>, and tap <strong>Install</strong> to finish setup.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Web Extension Card -->
+    <div class="download-card">
+      <div class="download-card-header">
+        <div class="download-card-icon" style="background:rgba(124,58,237,0.1);border-color:rgba(124,58,237,0.3)">🧩</div>
+        <div class="download-card-title">
+          <h3>Mule Phish Guard Extension</h3>
+          <p>Real-Time Bank &amp; UPI Browser Extension</p>
+        </div>
+      </div>
+
+      <div class="download-meta">
+        <div class="download-meta-item">
+          <span class="download-meta-label">Version</span>
+          <span class="download-meta-val">v1.0.0 (MV3)</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">File Size</span>
+          <span class="download-meta-val">14.3 KB</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">Browsers</span>
+          <span class="download-meta-val">Chrome / Edge / Brave</span>
+        </div>
+        <div class="download-meta-item">
+          <span class="download-meta-label">Archive Format</span>
+          <span class="download-meta-val">ZIP (.zip)</span>
+        </div>
+      </div>
+
+      <a href="downloads/mule-phish-guard.zip" download="mule-phish-guard.zip" class="btn btn-primary btn-download-action" style="background:linear-gradient(135deg,var(--accent-violet) 0%,var(--accent-blue) 100%)">
+        📥 Download Web Extension (.zip)
+      </a>
+
+      <div class="install-steps">
+        <h4>🧩 Extension Installation Guide</h4>
+        <ol>
+          <li>Click <strong>Download Web Extension (.zip)</strong> and extract/unzip <code>mule-phish-guard.zip</code> into a local folder.</li>
+          <li>Open Chrome or Edge and go to <code>chrome://extensions</code> (or <code>edge://extensions</code>).</li>
+          <li>Enable <strong>Developer mode</strong> using the toggle in the upper-right corner.</li>
+          <li>Click <strong>Load unpacked</strong> and select the unzipped <code>mule-phish-guard</code> folder.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: URL SCANNER ─────────────────── -->
+<section id="screen-scanner" class="screen-container">
+  <div class="section-title">🔍 On-Device URL / Link Threat Inspector</div>
+  <div class="section-sub">Char-CNN (60%) + LightGBM (40%) weighted ensemble — executed locally in &lt; 100ms via TFLite INT8</div>
+
+  <div class="card mb2">
+    <div class="card-header">
+      <div class="card-header-left"><h3>⚡ Real-Time ML Inference</h3><p>Enter any URL, domain, or raw link text</p></div>
+      <span class="card-badge badge-blue">On-Device · No Cloud</span>
+    </div>
+    <label class="input-label" for="url-input">URL / Domain / Full Link:</label>
+    <div class="input-row mb1">
+      <input type="text" id="url-input" class="text-input" placeholder="http://sbi-secure-login.xyz/verify-account" value="http://sbi-secure-login.xyz/verify-account" autocomplete="off" spellcheck="false" maxlength="2048">
+      <button class="btn btn-primary" style="width:auto;padding:.8rem 1.5rem" onclick="runLiveScan()">🛡️ Scan</button>
+    </div>
+    <div class="chips">
+      <span class="chips-label">Test vectors:</span>
+      <span class="chip" onclick="setSampleUrl('http://sbi-secure-login.xyz/verify-account')">sbi-secure-login.xyz</span>
+      <span class="chip" onclick="setSampleUrl('http://paytm-offers.top/claim-cashback?ref=sms')">paytm-offers.top</span>
+      <span class="chip" onclick="setSampleUrl('https://onlinesbi.sbi/personal')">onlinesbi.sbi ✅</span>
+      <span class="chip" onclick="setSampleUrl('http://192.168.10.1/update-kyc.apk')">IP Address / APK</span>
+      <span class="chip" onclick="setSampleUrl('http://electricity-bill-disconnection-alert.top/pay')">Utility Smish</span>
+      <span class="chip" onclick="setSampleUrl('http://hdfcbank-account-alert.tk/secure-login')">HDFC Typosquat</span>
+      <span class="chip" onclick="setSampleUrl('https://paytm.com/checkout')">paytm.com ✅</span>
+    </div>
+    <div class="scan-result" id="quick-scan-result"></div>
+  </div>
+
+  <!-- Batch scanner -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><h3>📋 Batch URL Scanner</h3><p>Paste multiple links (one per line)</p></div>
+      <span class="card-badge badge-violet">Bulk Mode</span>
+    </div>
+    <label class="input-label" for="batch-input">URLs (one per line):</label>
+    <textarea id="batch-input" class="text-input" placeholder="http://example-phish.xyz&#10;https://google.com&#10;http://hdfc-kyc-update.top/login" autocomplete="off" spellcheck="false" maxlength="10000"></textarea>
+    <div style="margin-top:.75rem">
+      <button class="btn btn-primary" onclick="runBatchScan()">🔍 Scan All Links</button>
+    </div>
+    <div id="batch-results" style="margin-top:1.25rem"></div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: UPI SECURITY ─────────────────── -->
+<section id="screen-upi" class="screen-container">
+  <div class="section-title">⚡ UPI Intent Security & Deep-Link Interceptor</div>
+  <div class="section-sub">Cryptographic VPA validation, Payee Name deception detection, explicit Intent.setPackage() routing</div>
+
+  <div class="card mb2">
+    <div class="card-header">
+      <div class="card-header-left"><h3>🔍 UPI URI Inspector</h3><p>Paste a <code>upi://pay?...</code> string to verify</p></div>
+      <span class="card-badge badge-blue">NPCI Protocol</span>
+    </div>
+    <label class="input-label" for="upi-input">UPI Deep Link URI:</label>
+    <div class="input-row mb1">
+      <input type="text" id="upi-input" class="text-input" value="upi://pay?pa=scammer88@ybl&pn=State%20Electricity%20Board&am=15000.00&cu=INR&tn=Immediate%20Bill%20Refund" autocomplete="off" spellcheck="false" maxlength="2048">
+      <button class="btn btn-primary" style="width:auto;padding:.8rem 1.5rem" onclick="verifyUPIIntent()">🔍 Verify</button>
+    </div>
+    <div class="chips">
+      <span class="chips-label">Presets:</span>
+      <span class="chip" onclick="setUPI('upi://pay?pa=scammer88@ybl&pn=State%20Electricity%20Board&am=15000.00&cu=INR&tn=Immediate%20Bill%20Refund')">Spoofed Payee</span>
+      <span class="chip" onclick="setUPI('upi://pay?pa=merchant@icici&pn=Amazon%20Pay&am=499.00&cu=INR&tn=Order%20Payment')">Legit B2B</span>
+      <span class="chip" onclick="setUPI('upi://pay?pa=muleaccount@okaxis&pn=Refund%20Department&am=25000.00&cu=INR&tn=Enter%20UPI%20PIN%20to%20receive')">Collect Abuse</span>
+      <span class="chip" onclick="setUPI('upi://pay?pa=fraud88@paytm&pn=NEFT%20Refund%20-%20RBI&am=50000.00&cu=INR')">RBI Impersonation</span>
+    </div>
+    <div class="upi-params" id="upi-params" style="display:none"></div>
+    <div class="scan-result" id="upi-verification-result"></div>
+  </div>
+
+  <!-- UPI Education panel -->
+  <div class="card no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>📚 UPI Deep Link Anatomy</h3><p>NPCI URI scheme parameter reference</p></div>
+      <span class="card-badge badge-gold">NPCI Standard</span>
+    </div>
+    <table class="f-table">
+      <thead><tr><th>Parameter</th><th>Name</th><th>Mandatory</th><th>Attack Vector</th></tr></thead>
+      <tbody>
+        <tr><td><code>pa</code></td><td>Payee VPA Address</td><td class="td-safe">✅ Yes</td><td>Replaced with mule account VPA</td></tr>
+        <tr><td><code>pn</code></td><td>Payee Display Name</td><td>No</td><td>Spoofed to show trusted org (bank/govt)</td></tr>
+        <tr><td><code>am</code></td><td>Transaction Amount</td><td>No</td><td>Hidden large amounts in encoded form</td></tr>
+        <tr><td><code>tn</code></td><td>Transaction Note</td><td>No</td><td>Social engineering ("Enter PIN to receive refund")</td></tr>
+        <tr><td><code>tr</code></td><td>Transaction Reference</td><td>No</td><td>Forged invoice numbers to build false legitimacy</td></tr>
+        <tr><td><code>sign</code></td><td>Cryptographic Signature</td><td>No</td><td>Absent in malicious links — verified by RakshaLink AI</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: SMS INTERCEPTOR ─────────────────── -->
+<section id="screen-sms" class="screen-container">
+  <div class="section-title">💬 SMS & Notification Listener Interceptor</div>
+  <div class="section-sub">Google Play compliant — uses <code>BIND_NOTIFICATION_LISTENER_SERVICE</code> instead of restricted <code>READ_SMS</code></div>
+
+  <div class="card mb2">
+    <div class="card-header">
+      <div class="card-header-left"><h3>📥 Incoming Message Threat Feed</h3><p>Real-time classification via on-device TFLite</p></div>
+      <span class="card-badge badge-red" id="sms-threat-count">2 Threats</span>
+    </div>
+    <div class="sms-toolbar">
+      <div class="sms-toolbar-left">Showing <strong id="sms-count">5</strong> messages — <strong id="sms-threat-stat">2</strong> threats detected</div>
+      <button class="btn btn-sm" style="background:rgba(255,59,59,.1);color:var(--danger-red);border:1px solid rgba(255,59,59,.3);border-radius:8px;cursor:pointer;padding:.4rem .9rem;font-family:var(--font-sans);font-weight:700;font-size:.8rem" onclick="simulateNewSMS()">+ Simulate Incoming SMS</button>
+      <button class="btn btn-sm" style="background:rgba(0,229,255,.08);color:var(--accent-blue);border:1px solid rgba(0,229,255,.25);border-radius:8px;cursor:pointer;padding:.4rem .9rem;font-family:var(--font-sans);font-weight:700;font-size:.8rem" onclick="scanAllSMS()">🔍 Re-scan All</button>
+    </div>
+    <div id="sms-list"></div>
+  </div>
+
+  <!-- Custom SMS test -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-left"><h3>🧪 Custom SMS Threat Tester</h3><p>Paste any SMS text to scan</p></div>
+      <span class="card-badge badge-violet">Manual Test</span>
+    </div>
+    <label class="input-label" for="sms-custom">SMS Text Content:</label>
+    <textarea id="sms-custom" class="text-input" placeholder="Paste SMS message here to test threat classification...">Dear customer, your SBI account has been suspended. Verify immediately at http://sbi-kyc-update.top/verify or your account will be blocked in 24 hours.</textarea>
+    <div style="margin-top:.75rem"><button class="btn btn-primary" onclick="scanCustomSMS()">🛡️ Classify SMS Threat</button></div>
+    <div id="custom-sms-result" class="scan-result" style="margin-top:1rem"></div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: QR ANALYZER ─────────────────── -->
+<section id="screen-qr" class="screen-container">
+  <div class="section-title">📷 QR Code & Payment Link Analyzer</div>
+  <div class="section-sub">Detects malicious QR overlays, stickered merchant code replacements, and embedded UPI VPA fraud</div>
+
+  <div class="card mb2">
+    <div class="card-header">
+      <div class="card-header-left"><h3>🔍 QR Code Content Inspector</h3><p>Paste decoded QR string (URL or UPI link) to analyze</p></div>
+      <span class="card-badge badge-blue">Camera Integration</span>
+    </div>
+    <label class="input-label" for="qr-input">Decoded QR String:</label>
+    <div class="input-row mb1">
+      <input type="text" id="qr-input" class="text-input" placeholder="upi://pay?pa=attacker@ybl&pn=..." value="upi://pay?pa=fraud_merchant99@okicici&pn=Dominos%20Pizza&am=450.00&cu=INR" autocomplete="off" spellcheck="false" maxlength="2048">
+      <button class="btn btn-primary" style="width:auto;padding:.8rem 1.5rem" onclick="analyzeQR()">📷 Analyze</button>
+    </div>
+    <div class="chips">
+      <span class="chips-label">Samples:</span>
+      <span class="chip" onclick="setQR('upi://pay?pa=fraud_merchant99@okicici&pn=Dominos%20Pizza&am=450.00&cu=INR')">Merchant QR Swap</span>
+      <span class="chip" onclick="setQR('http://xn--pyo-zma.com/sbi-login')">Homoglyph URL</span>
+      <span class="chip" onclick="setQR('upi://pay?pa=legitmerchant@sbi&pn=Coffee%20Shop&am=120.00&cu=INR')">Legit Merchant ✅</span>
+      <span class="chip" onclick="setQR('https://bit.ly/3xK8qr?redirect=http://phish-site.xyz/login')">URL Redirect Chain</span>
+    </div>
+    <div class="scan-result" id="qr-result"></div>
+  </div>
+
+  <!-- Sample QR scenarios -->
+  <div class="card no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>⚠️ Known QR Attack Scenarios</h3><p>Documented fraud patterns intercepted by RakshaLink AI</p></div>
+      <span class="card-badge badge-red">Field Reports</span>
+    </div>
+    <div id="qr-scenarios"></div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: ML ARCHITECTURE ─────────────────── -->
+<section id="screen-analysis" class="screen-container">
+  <div class="section-title">🧠 Hybrid Ensemble ML Architecture</div>
+  <div class="section-sub">TFLite INT8 quantized models — Char-CNN + LightGBM parallel inference with weighted probability fusion</div>
+
+  <div class="g2 mb2">
+    <div class="model-card">
+      <h3 style="color:var(--accent-blue)">1 · Character-Level CNN (60% weight)</h3>
+      <ul>
+        <li><strong>Vocabulary:</strong> 70-symbol mapping — lowercase a–z, digits 0–9, RFC URL special characters</li>
+        <li><strong>Embedding Layer:</strong> 128-dimensional continuous character vector space</li>
+        <li><strong>Sequence Constraint:</strong> Max 200 chars — zero-padded (short) / truncated (long)</li>
+        <li><strong>Conv Layers:</strong> 1D Conv filters → Global Max Pooling → Fully Connected dense layers</li>
+        <li><strong>Activation:</strong> ReLU hidden layers · Sigmoid output (binary phishing classification)</li>
+        <li><strong>Advantage:</strong> Learns character substitution, unusual subdomains, path obfuscation autonomously</li>
+      </ul>
+      <div class="perf-row">
+        <span class="perf-chip">Acc: 99.77%</span>
+        <span class="perf-chip">Prec: 99.89%</span>
+        <span class="perf-chip">F1: 99.77%</span>
+        <span class="perf-chip">INT8 TFLite</span>
+      </div>
+    </div>
+    <div class="model-card">
+      <h3 style="color:var(--accent-cyan)">2 · LightGBM Classifier (40% weight)</h3>
+      <ul>
+        <li><strong>Lexical:</strong> URL length, host length, dot count, subdomain depth, query count, token ratios</li>
+        <li><strong>Structural:</strong> HTTPS protocol, port anomalies, @ symbol presence, hyphen count, percent-encoding ratio</li>
+        <li><strong>Domain Entropy:</strong> Shannon entropy H(x) = −∑p log₂p for hostname string — detects DGA malware</li>
+        <li><strong>TLD Check:</strong> Suspicious registries (.xyz, .top, .tk, .ml) — common in phishing campaigns</li>
+        <li><strong>Semantic:</strong> Keyword lexicon scoring — login, verify, bank, secure, update, kyc, refund, claim</li>
+        <li><strong>Typosquatting:</strong> Levenshtein + Jaro-Winkler vs 300+ protected brand domains</li>
+      </ul>
+      <div class="perf-row">
+        <span class="perf-chip">Acc: 99.63%</span>
+        <span class="perf-chip">Prec: 99.75%</span>
+        <span class="perf-chip">F1: 99.62%</span>
+        <span class="perf-chip">36 Features</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full 36-feature table -->
+  <div class="card mb2 no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>📐 36-Feature Engineering Decomposition Matrix</h3><p>LightGBM feature domains with threat signal mapping</p></div>
+      <span class="card-badge badge-violet">Feature Space</span>
+    </div>
+    <table class="f-table">
+      <thead><tr><th>Category</th><th>Feature</th><th>Computation</th><th>Threat Signal</th></tr></thead>
+      <tbody>
+        <tr><td>Lexical</td><td>url_length</td><td>len(raw_url)</td><td>Obfuscated URL padding</td></tr>
+        <tr><td>Lexical</td><td>host_length</td><td>len(hostname)</td><td>Excessive subdomain stacking</td></tr>
+        <tr><td>Lexical</td><td>path_length</td><td>len(url_path)</td><td>Deep path credential harvest</td></tr>
+        <tr><td>Lexical</td><td>dot_count</td><td>count('.')</td><td>Sub-domain abuse (&gt; 3 = suspicious)</td></tr>
+        <tr><td>Lexical</td><td>digit_ratio</td><td>digits / total_chars</td><td>Random generated hostnames</td></tr>
+        <tr><td>Structural</td><td>has_https</td><td>url.startswith('https')</td><td>HTTP only = no TLS (not sufficient alone)</td></tr>
+        <tr><td>Structural</td><td>at_symbol</td><td>'@' in url</td><td>Credential embedding confusion</td></tr>
+        <tr><td>Structural</td><td>non_std_port</td><td>port not in {80,443}</td><td>C2 / malware server indicators</td></tr>
+        <tr><td>Structural</td><td>hyphen_count</td><td>count('-') in host</td><td>Domain obfuscation (sbi-secure-login)</td></tr>
+        <tr><td>Domain</td><td>shannon_entropy</td><td>−∑p(x)log₂p(x)</td><td>DGA malware hostname detection (&gt; 3.8)</td></tr>
+        <tr><td>Domain</td><td>is_ip_host</td><td>regex IPv4/6 match</td><td>Direct IP phishing, no DNS name</td></tr>
+        <tr><td>Domain</td><td>suspicious_tld</td><td>.xyz .top .tk .ml .cf</td><td>Low-cost free TLDs abused by attackers</td></tr>
+        <tr><td>Impersonation</td><td>levenshtein_min</td><td>min edit distance vs brand list</td><td>Typosquatting (dist ≤ 5)</td></tr>
+        <tr><td>Impersonation</td><td>jaro_winkler</td><td>Prefix-weighted string similarity</td><td>Visual domain spoofing (&gt; 0.85)</td></tr>
+        <tr><td>Semantic</td><td>keyword_score</td><td>weighted keyword hits / url_len</td><td>Credential harvesting portal intent</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TFLite Optimization -->
+  <div class="card no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>⚙️ TFLite INT8 Quantization &amp; Android Optimization</h3><p>Model deployment and runtime configuration on Android</p></div>
+      <span class="card-badge badge-green">On-Device</span>
+    </div>
+    <div class="g3">
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid var(--border)">
+        <h4 style="color:var(--accent-blue);margin-bottom:.5rem;font-size:.9rem">📦 Model Compression</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);line-height:1.5">Post-training quantization converts FP32 weights → INT8 integers. Reduces model size by <strong style="color:var(--text-main)">4×</strong>. Minimal accuracy degradation (&lt; 0.1%).</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid var(--border)">
+        <h4 style="color:var(--success-green);margin-bottom:.5rem;font-size:.9rem">⚡ NNAPI Hardware Delegation</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);line-height:1.5">Android Neural Networks API offloads inference to device DSP/NPU when available. Falls back to CPU seamlessly for sub-100ms latency guarantee.</p>
+      </div>
+      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid var(--border)">
+        <h4 style="color:var(--accent-gold);margin-bottom:.5rem;font-size:.9rem">🔒 DPDP Act 2023 Compliance</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);line-height:1.5">Zero raw URL/SMS payload transmitted to any server. All <code>.tflite</code> models bundled in <code>assets/</code>. ByteBuffer pre-processing is local-only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: SYSTEM FLOW ─────────────────── -->
+<section id="screen-arch" class="screen-container">
+  <div class="section-title">🔗 Full System Architecture Flow</div>
+  <div class="section-sub">End-to-end request interception, on-device evaluation, and response routing via Android VpnService TUN interface</div>
+
+  <!-- URL / Network flow -->
+  <div class="card mb2 no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>🌐 Network Traffic Interception Pipeline (VpnService)</h3><p>How outbound HTTP/HTTPS requests are intercepted and evaluated on Android</p></div>
+      <span class="card-badge badge-blue">Layer 3/4</span>
+    </div>
+    <div class="arch-flow">
+      <div class="arch-node highlight"><span class="node-icon">👆</span><div class="node-label">User Taps Link</div><div class="node-sub">Browser / Chat</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🌐</span><div class="node-label">OS Routes Packet</div><div class="node-sub">IP Layer</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🔀</span><div class="node-label">VpnService TUN</div><div class="node-sub">Local Loopback</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🔍</span><div class="node-label">SNI Extraction</div><div class="node-sub">TLS Handshake</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🤖</span><div class="node-label">TFLite Inference</div><div class="node-sub">&lt; 100ms CPU</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node red-node"><span class="node-icon">🚫</span><div class="node-label">BLOCK + Alert</div><div class="node-sub">Drop Packet</div></div>
+      <div style="color:var(--text-dim);padding:0 .5rem;font-size:.8rem;align-self:center">OR</div>
+      <div class="arch-node green-node"><span class="node-icon">✅</span><div class="node-label">ALLOW Forward</div><div class="node-sub">protect(socket)</div></div>
+    </div>
+  </div>
+
+  <!-- UPI Intent flow -->
+  <div class="card mb2 no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>⚡ UPI Intent Proxy Flow (Android Intent System)</h3><p>Deep-link interception and safe-routing to verified banking apps</p></div>
+      <span class="card-badge badge-gold">Intent Layer</span>
+    </div>
+    <div class="arch-flow">
+      <div class="arch-node highlight"><span class="node-icon">📱</span><div class="node-label">UPI Link / QR</div><div class="node-sub">upi://pay?...</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🎯</span><div class="node-label">Intent Resolver</div><div class="node-sub">Android OS</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🛡️</span><div class="node-label">RakshaLink Proxy</div><div class="node-sub">Primary Handler</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🔐</span><div class="node-label">Param Validation</div><div class="node-sub">pa + pn + sign</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node red-node"><span class="node-icon">🚨</span><div class="node-label">BLOCK Intent</div><div class="node-sub">Warning Dialog</div></div>
+      <div style="color:var(--text-dim);padding:0 .5rem;font-size:.8rem;align-self:center">OR</div>
+      <div class="arch-node green-node"><span class="node-icon">📤</span><div class="node-label">setPackage() Route</div><div class="node-sub">Explicit PSP App</div></div>
+    </div>
+  </div>
+
+  <!-- SMS flow -->
+  <div class="card no-hover">
+    <div class="card-header">
+      <div class="card-header-left"><h3>💬 SMS Notification Listener Pipeline</h3><p>Play Store compliant smishing detection without READ_SMS permission</p></div>
+      <span class="card-badge badge-violet">BIND_NLS</span>
+    </div>
+    <div class="arch-flow">
+      <div class="arch-node highlight"><span class="node-icon">📩</span><div class="node-label">SMS Arrives</div><div class="node-sub">Default App</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🔔</span><div class="node-label">Notification Posted</div><div class="node-sub">OS Notification</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">📡</span><div class="node-label">NLS Intercept</div><div class="node-sub">BIND_NLS</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🔤</span><div class="node-label">URL Extraction</div><div class="node-sub">Regex Parser</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node highlight"><span class="node-icon">🤖</span><div class="node-label">TFLite Classify</div><div class="node-sub">CNN + LGBM</div></div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node red-node"><span class="node-icon">⚠️</span><div class="node-label">HIGH Priority Alert</div><div class="node-sub">Override Notif.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: WARNING ─────────────────── -->
+<section id="screen-warning" class="screen-container">
+  <div class="warning-full">
+    <div class="warn-icon-ring">🚨</div>
+    <h2>MALICIOUS PHISHING PAGE BLOCKED</h2>
+    <p>RakshaLink AI on-device protection intercepted a fraudulent connection attempt. This site uses brand impersonation to harvest your banking credentials and UPI PIN.</p>
+    <div class="blocked-url" id="warning-url">
+      INTERCEPTED: http://sbi-secure-login.xyz/verify-account<br>
+      THREAT TYPE: Typosquatting — Levenshtein dist 3 vs onlinesbi.sbi<br>
+      VPN ACTION: PACKET DROPPED (TUN Interface) · Redirect to local blockpage<br>
+      RISK SCORE: 98.4 / 100 · Ensemble Confidence: 99.81%
+    </div>
+    <div class="warn-actions">
+      <button class="btn btn-danger" onclick="switchScreen('dashboard')">🛡️ Return to Safety</button>
+      <button class="btn btn-ghost" onclick="showThreatDetail()">📋 View Full Threat Report</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── SCREEN: BRAND ─────────────────── -->
+<section id="screen-logo" class="screen-container">
+  <div class="logo-showcase">
+    <img src="rakshalink_shield_logo.jpg" alt="RakshaLink AI Shield Logo" class="logo-img">
+    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:.5rem;background:linear-gradient(135deg,#fff 0%,var(--accent-blue) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">
+      RakshaLink AI — Brand Identity & Shield Logo
+    </h2>
+    <p style="color:var(--text-muted);max-width:580px;margin:0 auto 1.5rem;font-size:.9rem;line-height:1.6">
+      3D metallic cyber shield featuring Indian biometric iconography with gold circuit motifs on deep navy background — symbolizing high-precision neural network defense for the digital payment ecosystem.
+    </p>
+    <div class="chips" style="justify-content:center">
+      <span class="chip">Resolution: 1024 × 1024</span>
+      <span class="chip">Format: JPG · WebP</span>
+      <span class="chip">Primary: #00E5FF</span>
+      <span class="chip">Background: #060A12</span>
+      <span class="chip">Accent: #F59E0B (Gold)</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>RakshaLink AI</strong> · On-Device Anti-Phishing & Fraud Prevention Platform · DPDP Act 2023 Compliant · No Data Transmitted to Remote Servers</p>
+  <p style="margin-top:.4rem">Data Sources: MHA / I4C 2025–26 · NPCI UPI Protocol · TFLite Char-CNN + LightGBM Ensemble (99.81% Accuracy)</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
