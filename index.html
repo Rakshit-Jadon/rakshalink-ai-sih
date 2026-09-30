@@ -30,13 +30,25 @@
      HEADER
 ═══════════════════════════════════════════════════════ -->
 <header>
-  <a href="#" class="brand" onclick="switchScreen('dashboard');return false;">
-    <img src="rakshalink_shield_logo.jpg" alt="RakshaLink AI Shield" class="brand-icon">
-    <div class="brand-text">
-      <h1>RakshaLink AI</h1>
-      <span>On-Device Mobile Shield</span>
+  <div class="header-top">
+    <a href="#" class="brand" onclick="switchScreen('dashboard');return false;">
+      <img src="rakshalink_shield_logo.jpg" alt="RakshaLink AI Shield" class="brand-icon">
+      <div class="brand-text">
+        <h1>RakshaLink AI</h1>
+        <span>On-Device Mobile Shield</span>
+      </div>
+    </a>
+
+    <div class="header-right">
+      <div class="threat-counter" id="hdr-threats">
+        ⚡ Threats Blocked: <span id="threat-count">0</span>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        TFLite NNAPI — Active
+      </div>
     </div>
-  </a>
+  </div>
 
   <nav class="nav-links">
     <button class="nav-btn active" id="btn-dashboard" onclick="switchScreen('dashboard')">📊 Dashboard</button>
@@ -50,16 +62,6 @@
     <button class="nav-btn" id="btn-warning"    onclick="switchScreen('warning')">🚨 Threat Block</button>
     <button class="nav-btn" id="btn-logo"       onclick="switchScreen('logo')">🛡️ Brand</button>
   </nav>
-
-  <div class="header-right">
-    <div class="threat-counter" id="hdr-threats">
-      ⚡ Threats Blocked: <span id="threat-count">0</span>
-    </div>
-    <div class="status-badge">
-      <div class="status-dot"></div>
-      TFLite NNAPI — Active
-    </div>
-  </div>
 </header>
 
 <!-- ═══════════════════════════════════════════════════════

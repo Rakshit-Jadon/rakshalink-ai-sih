@@ -30,7 +30,10 @@ function switchScreen(name) {
   const s = document.getElementById(`screen-${name}`);
   const b = document.getElementById(`btn-${name}`);
   if (s) s.classList.add('active');
-  if (b) b.classList.add('active');
+  if (b) {
+    b.classList.add('active');
+    b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
