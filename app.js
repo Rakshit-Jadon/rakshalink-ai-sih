@@ -30,7 +30,10 @@ function switchScreen(name) {
   const s = document.getElementById(`screen-${name}`);
   const b = document.getElementById(`btn-${name}`);
   if (s) s.classList.add('active');
-  if (b) b.classList.add('active');
+  if (b) {
+    b.classList.add('active');
+    b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -541,12 +544,92 @@ function scanCustomSMS() {
 // ─── QR Functions ───────────────────────────────────────────
 function setQR(str) {
   document.getElementById('qr-input').value = str;
-  analyzeQR();
+  switchScreen('qr');
+  setTimeout(analyzeQR, 50);
+}
+
+function handleQRFileUpload(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const preview = document.getElementById('qr-img-preview');
+    const wrap = document.getElementById('qr-img-preview-wrap');
+    if (preview && wrap) {
+      preview.src = dataUrl;
+      wrap.style.display = 'block';
+    }
+
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+      decodeQRFromImage(img);
+    };
+    img.src = dataUrl;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function decodeQRFromImage(img) {
+  const el = document.getElementById('qr-result');
+  addConsoleLine('info', '[QR] Decoding uploaded image via vision engine...');
+
+  // Method 1: BarcodeDetector API (Android Chrome native)
+  if ('BarcodeDetector' in window) {
+    try {
+      const detector = new BarcodeDetector({ formats: ['qr_code'] });
+      const barcodes = await detector.detect(img);
+      if (barcodes && barcodes.length > 0) {
+        const decoded = barcodes[0].rawValue;
+        addConsoleLine('ok', `[QR] Decoded payload: ${decoded.substring(0, 40)}...`);
+        document.getElementById('qr-input').value = decoded;
+        analyzeQR();
+        return;
+      }
+    } catch (err) {
+      console.warn('BarcodeDetector fallback:', err);
+    }
+  }
+
+  // Method 2: jsQR Canvas Decoder
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = img.naturalWidth || img.width;
+  canvas.height = img.naturalHeight || img.height;
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  if (typeof jsQR !== 'undefined') {
+    const code = jsQR(imageData.data, imageData.width, imageData.height, {
+      inversionAttempts: 'dontInvert',
+    });
+    if (code && code.data) {
+      addConsoleLine('ok', `[QR] Decoded via jsQR engine: ${code.data.substring(0, 40)}...`);
+      document.getElementById('qr-input').value = code.data;
+      analyzeQR();
+      return;
+    }
+  }
+
+  addConsoleLine('warn', '[QR] No valid QR code matrix detected in uploaded image.');
+  el.innerHTML = `
+    <div style="color:var(--danger-red);font-weight:700;margin-bottom:.5rem">⚠️ NO QR CODE DETECTED IN IMAGE</div>
+    <div style="font-size:.85rem;color:var(--text-muted)">The uploaded image could not be decoded. Please upload a clear QR code photo or select one of the test scenarios below.</div>
+  `;
+  el.className = 'scan-result visible malicious';
 }
 
 function analyzeQR() {
   const raw = document.getElementById('qr-input').value.trim();
   const el  = document.getElementById('qr-result');
+
+  if (!raw) {
+    el.innerHTML = `<div style="color:var(--danger-red);font-weight:700">⚠️ Please enter or upload a QR payload string</div>`;
+    el.className = 'scan-result visible malicious';
+    return;
+  }
 
   if (raw.startsWith('upi://pay')) {
     document.getElementById('upi-input').value = raw;
