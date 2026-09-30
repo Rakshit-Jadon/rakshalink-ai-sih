@@ -215,9 +215,18 @@ const RakshaHeuristics = (() => {
    * @returns {{score:number, band:"LOW"|"MEDIUM"|"HIGH", reasons:string[], hostname:string}}
    */
   function evaluateUrl(rawUrl) {
+    if (typeof rawUrl !== "string") {
+      return { score: 0, band: "LOW", reasons: [], hostname: "" };
+    }
+
     let url;
+    const normalized = rawUrl.trim();
+    const candidate = /^(https?:)?\/\//i.test(normalized)
+      ? normalized
+      : `http://${normalized}`;
+
     try {
-      url = new URL(rawUrl);
+      url = new URL(candidate);
     } catch (e) {
       return { score: 0, band: "LOW", reasons: [], hostname: "" };
     }
