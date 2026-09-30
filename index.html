@@ -463,10 +463,27 @@
 
   <div class="card mb2">
     <div class="card-header">
-      <div class="card-header-left"><h3>🔍 QR Code Content Inspector</h3><p>Paste decoded QR string (URL or UPI link) to analyze</p></div>
-      <span class="card-badge badge-blue">Camera Integration</span>
+      <div class="card-header-left">
+        <h3>📷 On-Device QR Code Image Scanner & Inspector</h3>
+        <p>Upload any QR image (PNG, JPG, WEBP) or paste a decoded QR string</p>
+      </div>
+      <span class="card-badge badge-blue">JS Engine + Vision AI</span>
     </div>
-    <label class="input-label" for="qr-input">Decoded QR String:</label>
+
+    <!-- QR Image Upload Box -->
+    <div class="qr-upload-area mb15" id="qr-dropzone" onclick="document.getElementById('qr-file-input').click()">
+      <input type="file" id="qr-file-input" accept="image/*" style="display:none" onchange="handleQRFileUpload(event)">
+      <div class="qr-upload-icon">📁</div>
+      <div class="qr-upload-text">
+        <strong>Click or Drag & Drop QR Code Image</strong>
+        <p>Supports PNG, JPG, WEBP — Decodes payload 100% on-device</p>
+      </div>
+      <div id="qr-img-preview-wrap" style="display:none;margin-top:1rem;text-align:center">
+        <img id="qr-img-preview" alt="Uploaded QR Code Preview" style="max-height:180px;border-radius:12px;border:2px solid var(--accent-blue);box-shadow:0 0 20px rgba(0,229,255,0.2)">
+      </div>
+    </div>
+
+    <label class="input-label" for="qr-input">Decoded QR String / Payload:</label>
     <div class="input-row mb1">
       <input type="text" id="qr-input" class="text-input" placeholder="upi://pay?pa=attacker@ybl&pn=..." value="upi://pay?pa=fraud_merchant99@okicici&pn=Dominos%20Pizza&am=450.00&cu=INR" autocomplete="off" spellcheck="false" maxlength="2048">
       <button class="btn btn-primary" style="width:auto;padding:.8rem 1.5rem" onclick="analyzeQR()">📷 Analyze</button>
@@ -701,6 +718,7 @@
   <p style="margin-top:.4rem">Data Sources: MHA / I4C 2025–26 · NPCI UPI Protocol · TFLite Char-CNN + LightGBM Ensemble (99.81% Accuracy)</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
