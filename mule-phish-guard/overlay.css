@@ -1,0 +1,71 @@
+.rakshalink-banner {
+  all: initial;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff3cd;
+  border-bottom: 1px solid #e6c200;
+  color: #4a3b00;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+  font-size: 13px;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.rakshalink-banner .rl-icon { font-size: 15px; }
+.rakshalink-banner .rl-text { flex: 1; line-height: 1.4; }
+.rakshalink-banner button {
+  font-family: inherit;
+  font-size: 12px;
+  border: 1px solid #e6c200;
+  background: #fffbe6;
+  color: #4a3b00;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.rakshalink-banner .rl-dismiss {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 4px 6px;
+}
+
+.rakshalink-modal-backdrop {
+  all: initial;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgba(20, 15, 10, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+}
+.rakshalink-modal-backdrop .rl-modal {
+  background: #fff;
+  color: #1a1a1a;
+  max-width: 440px;
+  width: 90%;
+  border-radius: 6px;
+  padding: 26px 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.rl-modal h2 { font-size: 18px; margin: 0 0 10px; }
+.rl-modal p { font-size: 13.5px; line-height: 1.55; margin: 0 0 12px; color: #333; }
+.rl-modal ul { font-size: 13px; line-height: 1.6; margin: 0 0 12px; padding-left: 18px; color: #333; }
+.rl-modal .rl-tip { font-style: italic; color: #7f1a15; }
+.rl-actions { display: flex; gap: 10px; margin-top: 6px; }
+.rl-actions button {
+  font-size: 13px;
+  padding: 9px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+.rl-cancel { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+.rl-proceed { background: transparent; color: #7f1a15; border-color: #e8d9d2; }
