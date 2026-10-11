@@ -137,15 +137,20 @@ function extractFeatures(rawUrl) {
       bestJaro = jaroWinkler(host, brandHost);
     }
   }
-  const isTyposquat = minDist > 0 && minDist <= 6 && bestJaro > 0.7;
   const isExactLegit = minDist === 0;
+  const brandImpersonation = !isExactLegit && PROTECTED_BRANDS.some((brand) => {
+    const brandLabel = brand.split('.')[0];
+    const normalizedHost = host.replace(/-/g, '');
+    return normalizedHost.includes(brandLabel) && normalizedHost !== brandLabel;
+  });
+  const isTyposquat = (minDist > 0 && minDist <= 6 && bestJaro > 0.7) || brandImpersonation;
 
   return {
     host, path, tld, hasHttps, isIP, hasAt,
     dotCount, hyphenCount, urlLen, entropy,
     keywordsFound, suspiciousTLD,
     minDist, bestBrand, bestJaro: +bestJaro.toFixed(3),
-    isTyposquat, isExactLegit,
+    isTyposquat, isExactLegit, brandImpersonation,
   };
 }
 
@@ -175,8 +180,9 @@ function computeRiskScore(f) {
   // Semantic keywords
   score += Math.min(f.keywordsFound.length * 12, 40);
 
-  // Typosquatting
+  // Typosquatting / brand impersonation
   if (f.isTyposquat) score += Math.max(0, (6 - f.minDist) * 8);
+  if (f.brandImpersonation) score += 25;
 
   return Math.min(Math.max(score, 2), 99.5);
 }
@@ -376,10 +382,19 @@ function verifyUPIIntent() {
 
   const qs = raw.split('?')[1] || '';
   const p = new URLSearchParams(qs);
-  const pa = p.get('pa') || 'MISSING';
-  const pn = decodeURIComponent(p.get('pn') || 'Unknown');
+  const decodeParam = (value, fallback = 'Unknown') => {
+    if (value == null || value === '') return fallback;
+    try {
+      return decodeURIComponent(String(value));
+    } catch {
+      return String(value);
+    }
+  };
+
+  const pa = decodeParam(p.get('pa'), 'MISSING');
+  const pn = decodeParam(p.get('pn'), 'Unknown');
   const am = p.get('am') || 'Not specified';
-  const tn = decodeURIComponent(p.get('tn') || 'None');
+  const tn = decodeParam(p.get('tn'), 'None');
   const sign = p.get('sign');
 
   // Threat signals

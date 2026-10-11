@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RakshaLink</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="mark">RL</div>
+    <div>
+      <div class="title">RakshaLink</div>
+      <div class="subtitle">UPI &amp; bank phishing guard for this PC</div>
+    </div>
+  </header>
+
+  <section id="statusCard" class="status-card status-low">
+    <div>
+      <div class="kicker" id="bandKicker">This page</div>
+      <div class="status-score" id="scoreText">--</div>
+    </div>
+    <div class="status-label" id="bandText">Checking this page…</div>
+  </section>
+
+  <section class="coverage">
+    <div class="row">
+      <span>Daily-work coverage</span>
+      <strong id="coverageValue">—</strong>
+    </div>
+    <div class="meter"><div class="meter-fill" id="coverageFill"></div></div>
+    <p id="coverageBlurb">Install is active. Coverage rises while protection is watching your browsing.</p>
+  </section>
+
+  <section class="stats">
+    <div>
+      <div class="num" id="checkedCount">0</div>
+      <div class="lbl">Pages checked<br>(saved)</div>
+    </div>
+    <div>
+      <div class="num warn" id="blockedCount">0</div>
+      <div class="lbl">Threats blocked<br>(saved)</div>
+    </div>
+  </section>
+
+  <section class="reasons-wrap">
+    <div class="reasons-title">Why this page scored that way</div>
+    <ul id="reasonsList" class="reasons-list">
+      <li class="empty">No concerns on this page.</li>
+    </ul>
+  </section>
+
+  <section class="risks">
+    <div class="reasons-title">What this protects you from at work</div>
+    <div class="chip">SMS KYC / “account blocked” links</div>
+    <div class="chip">Fake refund &amp; cashback PIN pages</div>
+    <div class="chip">Lookalike SBI, HDFC, PhonePe, GPay domains</div>
+    <p class="limit">Does not see Instagram’s in-app browser — use the Android Guard app for that. Does not stop fraud inside a real UPI app after you already approved a payment.</p>
+  </section>
+
+  <footer>
+    <span id="hostname"></span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
