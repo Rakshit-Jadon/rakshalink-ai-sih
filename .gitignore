@@ -5,12 +5,18 @@
 
 # Environment & Secrets
 .env
-.env.local
-.env.*.local
+.env.*
+*.env
+*.env.*
 *.key
 *.pem
 *.jks
 *.keystore
+*.secret
+*.token
+credentials.json
+client_secrets.json
+audit_log.jsonl
 
 # Node & Build artifacts
 node_modules/
