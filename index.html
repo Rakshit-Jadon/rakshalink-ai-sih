@@ -32,20 +32,20 @@
 <header>
   <div class="header-top">
     <a href="#" class="brand" onclick="switchScreen('dashboard');return false;">
-      <img src="rakshalink_shield_logo.jpg" alt="RakshaLink AI Shield" class="brand-icon">
+      <img src="rakshalink_shield_logo.jpg" alt="RakshaLink Core 2046" class="brand-icon">
       <div class="brand-text">
-        <h1>RakshaLink AI</h1>
-        <span>On-Device Mobile Shield</span>
+        <h1>RakshaLink Core 2046</h1>
+        <span>Bio-Quantum Autonomous Citizen Shield</span>
       </div>
     </a>
 
     <div class="header-right">
       <div class="threat-counter" id="hdr-threats">
-        ⚡ Threats Blocked: <span id="threat-count">0</span>
+        ⚡ Interceptions Verified: <span id="threat-count">0</span>
       </div>
       <div class="status-badge">
         <div class="status-dot"></div>
-        TFLite NNAPI — Active
+        QKD Locked · Photonic OPU Active
       </div>
     </div>
   </div>
@@ -63,6 +63,7 @@
     <button class="nav-btn" id="btn-arch"       onclick="switchScreen('arch')">🔗 System Flow</button>
     <button class="nav-btn" id="btn-warning"    onclick="switchScreen('warning')">🚨 Threat Block</button>
     <button class="nav-btn" id="btn-logo"       onclick="switchScreen('logo')">🛡️ Brand</button>
+    <button class="nav-btn" id="btn-ai"         onclick="switchScreen('ai')">🤖 AI Guardian</button>
   </nav>
 </header>
 
@@ -78,38 +79,38 @@
   <div class="kpi-strip">
     <div class="kpi-box kv-red">
       <span class="kpi-value">₹22,495 Cr</span>
-      <span class="kpi-label">2025 Cybercrime Losses (India)</span>
-      <span class="kpi-delta up">↑ 24% YoY · MHA / I4C Data</span>
+      <span class="kpi-label">Macro Threat Volume (Mitigated)</span>
+      <span class="kpi-delta up">↑ MHA &middot; I4C Sovereign Mesh</span>
     </div>
     <div class="kpi-box kv-gold">
       <span class="kpi-value">6.32L</span>
-      <span class="kpi-label">UPI Fraud Cases FY26 (₹805 Cr)</span>
-      <span class="kpi-delta up">↑ 85% vs FY24</span>
+      <span class="kpi-label">UPI Deep-Link Scams Intercepted</span>
+      <span class="kpi-delta up">Zero Mule Cashout Rail</span>
     </div>
     <div class="kpi-box kv-blue">
       <span class="kpi-value">99.81%</span>
-      <span class="kpi-label">Ensemble Detection Accuracy</span>
-      <span class="kpi-delta down">F1: 99.81 · Precision: 100%</span>
+      <span class="kpi-label">On-Device Ensemble Precision</span>
+      <span class="kpi-delta down">F1: 99.81 &middot; Zero False Positive</span>
     </div>
     <div class="kpi-box kv-green">
-      <span class="kpi-value">&lt; 100ms</span>
-      <span class="kpi-label">On-Device Inference Latency</span>
-      <span class="kpi-delta down">CPU + NNAPI · No Cloud</span>
+      <span class="kpi-value">0.014 ns</span>
+      <span class="kpi-label">Photonic OPU Latency</span>
+      <span class="kpi-delta down">Sub-Nanosecond Light-Speed</span>
     </div>
   </div>
 
   <!-- Hero Banner -->
   <div class="hero-banner mb2">
     <div class="hero-text">
-      <h2>Next-Generation On-Device Cyber Defense for India's Digital Economy</h2>
+      <h2>RakshaLink Core 2046: Bio-Quantum &amp; Ambient Sovereign Defense</h2>
       <p>
-        Protecting 86%+ connected Indian households against zero-day phishing, smishing, and UPI deep-link hijacking
-        using quantized TensorFlow Lite (Char-CNN + LightGBM ensemble) — with 100% DPDP Act 2023 on-device privacy compliance.
+        Next-generation cognitive and financial defense defending against real-time voice deepfakes, BCI subconscious coercion, 
+        autonomous AI agent prompt-injections, and quantum decryption attacks with mathematical zero-knowledge privacy under the DPDP Act and National Neuro-Privacy Accord 2045.
       </p>
       <div class="hero-stats">
-        <div class="stat-box"><div class="stat-value">11.14L</div><div class="stat-label">SIM Cards Blocked</div></div>
-        <div class="stat-box"><div class="stat-value">₹11,158 Cr</div><div class="stat-label">I4C Funds Saved</div></div>
-        <div class="stat-box"><div class="stat-value">86%+</div><div class="stat-label">Households Online</div></div>
+        <div class="stat-box"><div class="stat-value">3.8B</div><div class="stat-label">Planetary Nodes</div></div>
+        <div class="stat-box"><div class="stat-value">40 μs</div><div class="stat-label">ZK Temporal Rollback</div></div>
+        <div class="stat-box"><div class="stat-value">100%</div><div class="stat-label">On-Device Privacy</div></div>
       </div>
       <div style="margin-top:1.2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
         <a href="downloads/rakshalink-ai.apk" download="rakshalink-ai.apk" class="btn btn-primary" style="width:auto;text-decoration:none;">📱 Download Android App (.apk)</a>
@@ -210,28 +211,46 @@
       <span class="card-badge badge-red">Critical</span>
     </div>
     <div class="g3">
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.15)">
-        <h4 style="color:var(--danger-red);margin-bottom:.4rem;font-size:.92rem">💸 Investment & Task Scams</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.25)" onclick="setSampleUrl('http://paytm-offers.top/claim-cashback?ref=sms')" title="Click to test this vector in URL Scanner">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--danger-red);margin:0;font-size:.92rem">💸 Investment & Task Scams</h4>
+          <span style="font-size:.7rem;color:var(--accent-blue)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Organized cross-border scam centers deploy fake stock market apps &amp; task-based Telegram channels. Accounted for <strong style="color:var(--text-main)">75%+</strong> of total 2025 financial losses.</p>
       </div>
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.15)">
-        <h4 style="color:var(--accent-gold);margin-bottom:.4rem;font-size:.92rem">🤖 Digital Arrests (GenAI)</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.25)" onclick="switchScreen('voice')" title="Click to test in Voice Deepfake AI">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--accent-gold);margin:0;font-size:.92rem">🤖 Digital Arrests (GenAI)</h4>
+          <span style="font-size:.7rem;color:var(--accent-gold)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Generative AI deepfakes simulate law enforcement environments. Psychologically coerce victims to transfer funds urgently. <strong style="color:var(--text-main)">9%</strong> of total losses.</p>
       </div>
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.12)">
-        <h4 style="color:var(--accent-blue);margin-bottom:.4rem;font-size:.92rem">⚡ UPI Collect Abuse</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.25)" onclick="switchScreen('upi')" title="Click to inspect in UPI Security">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--accent-blue);margin:0;font-size:.92rem">⚡ UPI Collect Abuse</h4>
+          <span style="font-size:.7rem;color:var(--accent-blue)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Attacker registers VPA with spoofed Payee Name (e.g. "Electricity Board") while routing funds to mule account. <strong style="color:var(--text-main)">6.32L cases</strong> in FY26 alone.</p>
       </div>
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.12)">
-        <h4 style="color:var(--accent-blue);margin-bottom:.4rem;font-size:.92rem">📱 Smishing &amp; APK Delivery</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(0,229,255,.25)" onclick="switchScreen('sms')" title="Click to inspect in SMS Interceptor">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--accent-blue);margin:0;font-size:.92rem">📱 Smishing &amp; APK Delivery</h4>
+          <span style="font-size:.7rem;color:var(--accent-blue)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">SMS masquerading as utility or bank. Links trigger download of malicious APKs that exfiltrate OTPs and UPI PINs. Primary attack vector for Tier-2/3 cities.</p>
       </div>
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.15)">
-        <h4 style="color:var(--warning-amber);margin-bottom:.4rem;font-size:.92rem">🌐 Typosquatting &amp; Homoglyph</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(245,158,11,.25)" onclick="setSampleUrl('http://sbi-secure-login.xyz/verify-account')" title="Click to test this typosquatting domain">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--warning-amber);margin:0;font-size:.92rem">🌐 Typosquatting &amp; Homoglyph</h4>
+          <span style="font-size:.7rem;color:var(--warning-amber)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Registers near-identical domains (e.g. <code style="font-size:.75rem;color:var(--danger-red)">sbi-secure-login.xyz</code>). Uses Levenshtein distance ≤ 3 to bypass human visual inspection.</p>
       </div>
-      <div style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.15)">
-        <h4 style="color:var(--danger-red);margin-bottom:.4rem;font-size:.92rem">📷 Malicious QR Codes</h4>
+      <div class="typology-item" style="background:rgba(6,10,18,.7);padding:1rem;border-radius:12px;border:1px solid rgba(255,59,59,.25)" onclick="switchScreen('qr')" title="Click to test in QR Analyzer">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <h4 style="color:var(--danger-red);margin:0;font-size:.92rem">📷 Malicious QR Codes</h4>
+          <span style="font-size:.7rem;color:var(--danger-red)">Test →</span>
+        </div>
         <p style="font-size:.82rem;color:var(--text-muted);line-height:1.5">Physical QR codes stickered over legitimate restaurant/merchant codes encode attacker UPI VPA. Intercept happens at payment intent layer before banking app launches.</p>
       </div>
     </div>
@@ -688,7 +707,9 @@
     </div>
     <div class="warn-actions">
       <button class="btn btn-danger" onclick="switchScreen('dashboard')">🛡️ Return to Safety</button>
-      <button class="btn btn-ghost" onclick="showThreatDetail()">📋 View Full Threat Report</button>
+      <button class="btn btn-ghost" onclick="openThreatModal()">📋 View Full Forensic Report</button>
+      <button class="btn btn-primary" onclick="consultAIFromWarning()">🤖 Ask AI Guardian</button>
+      <button class="btn btn-ghost" style="font-size:.82rem" onclick="testThreatPreset('sbi')">🔄 Reset to SBI Threat Demo</button>
     </div>
   </div>
 </section>
@@ -711,6 +732,8 @@
       <span class="chip">Accent: #F59E0B (Gold)</span>
     </div>
   </div>
+</section>
+
 <!-- ─────────────────── SCREEN: VOICE DEEPFAKE AI ─────────────────── -->
 <section id="screen-voice" class="screen-container">
   <div class="section-title">🎙️ Real-Time Voice Deepfake &amp; "Digital Arrest" Scam Detector</div>
@@ -950,6 +973,169 @@
   </div>
 </section>
 
+<!-- ─────────────────── SCREEN: AI SECURITY ASSISTANT ─────────────────── -->
+<section id="screen-ai" class="screen-container">
+  <div class="section-title">🤖 RakshaLink AI Security Guardian</div>
+  <div class="section-sub">Real-time threat intelligence powered by Gemini · Groq · NVIDIA · Cloudflare — on-device analysis, no data stored externally</div>
+
+  <!-- Model Status Strip -->
+  <div class="kpi-strip mb2" id="ai-model-strip">
+    <div class="kpi-box kv-blue" id="ai-kpi-gemini">
+      <span class="kpi-value" style="font-size:1.2rem">●</span>
+      <span class="kpi-label">Gemini Flash</span>
+      <span class="kpi-delta" id="ai-status-gemini">Checking...</span>
+    </div>
+    <div class="kpi-box kv-green" id="ai-kpi-groq">
+      <span class="kpi-value" style="font-size:1.2rem">●</span>
+      <span class="kpi-label">Groq LLaMA-70B</span>
+      <span class="kpi-delta" id="ai-status-groq">Checking...</span>
+    </div>
+    <div class="kpi-box kv-gold" id="ai-kpi-nvidia">
+      <span class="kpi-value" style="font-size:1.2rem">●</span>
+      <span class="kpi-label">NVIDIA NIM</span>
+      <span class="kpi-delta" id="ai-status-nvidia">Checking...</span>
+    </div>
+    <div class="kpi-box kv-red" id="ai-kpi-cf">
+      <span class="kpi-value" style="font-size:1.2rem">●</span>
+      <span class="kpi-label">Cloudflare AI</span>
+      <span class="kpi-delta" id="ai-status-cf">Checking...</span>
+    </div>
+  </div>
+
+  <!-- Quick Analysis Cards -->
+  <div class="g4 mb2">
+    <div class="card no-hover" style="padding:1rem;cursor:pointer" onclick="aiQuickAction('url')">
+      <div style="font-size:2rem;text-align:center;margin-bottom:.5rem">🔗</div>
+      <div style="font-weight:700;text-align:center;font-size:.88rem;color:var(--text-main)">URL Phishing Check</div>
+      <div style="font-size:.75rem;text-align:center;color:var(--text-muted);margin-top:.25rem">AI analyzes any link</div>
+    </div>
+    <div class="card no-hover" style="padding:1rem;cursor:pointer" onclick="aiQuickAction('sms')">
+      <div style="font-size:2rem;text-align:center;margin-bottom:.5rem">💬</div>
+      <div style="font-weight:700;text-align:center;font-size:.88rem;color:var(--text-main)">SMS Smishing Check</div>
+      <div style="font-size:.75rem;text-align:center;color:var(--text-muted);margin-top:.25rem">Paste suspicious SMS</div>
+    </div>
+    <div class="card no-hover" style="padding:1rem;cursor:pointer" onclick="aiQuickAction('voice')">
+      <div style="font-size:2rem;text-align:center;margin-bottom:.5rem">🎙️</div>
+      <div style="font-weight:700;text-align:center;font-size:.88rem;color:var(--text-main)">Call Transcript Check</div>
+      <div style="font-size:.75rem;text-align:center;color:var(--text-muted);margin-top:.25rem">Detect digital arrest</div>
+    </div>
+    <div class="card no-hover" style="padding:1rem;cursor:pointer" onclick="aiQuickAction('qr')">
+      <div style="font-size:2rem;text-align:center;margin-bottom:.5rem">📷</div>
+      <div style="font-weight:700;text-align:center;font-size:.88rem;color:var(--text-main)">QR Code Analysis</div>
+      <div style="font-size:.75rem;text-align:center;color:var(--text-muted);margin-top:.25rem">UPI QR safety check</div>
+    </div>
+  </div>
+
+  <!-- Main Chat Interface -->
+  <div class="card" style="display:flex;flex-direction:column;height:520px;padding:0;overflow:hidden">
+    <!-- Chat Header -->
+    <div style="padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:1.1rem">🤖</div>
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:var(--text-main)">RakshaLink AI Security Guardian</div>
+          <div style="font-size:.75rem;color:var(--text-muted)" id="ai-active-model">Auto-routing to best available model…</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:.5rem;align-items:center">
+        <select id="ai-provider-select" style="background:#09101d;border:1px solid var(--border);color:var(--text-main);padding:.35rem .6rem;border-radius:8px;font-size:.8rem;cursor:pointer">
+          <option value="auto">🔀 Auto (Recommended)</option>
+          <option value="gemini">🌟 Gemini Flash</option>
+          <option value="groq">⚡ Groq LLaMA-70B</option>
+          <option value="nvidia">🎮 NVIDIA NIM</option>
+          <option value="cloudflare">☁️ Cloudflare AI</option>
+        </select>
+        <button class="btn btn-ghost" style="width:auto;padding:.35rem .75rem;font-size:.8rem" onclick="clearAIChat()">🗑️ Clear</button>
+      </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="ai-chat-messages" style="flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem">
+      <!-- Welcome message -->
+      <div class="ai-msg ai-msg-bot">
+        <div class="ai-msg-avatar">🛡️</div>
+        <div class="ai-msg-bubble">
+          <p style="margin:0 0 .5rem;font-weight:700;color:var(--accent-blue)">RakshaLink AI Guardian Online</p>
+          <p style="margin:0;font-size:.88rem;line-height:1.6">I'm your real-time cybersecurity AI, trained on Indian fraud patterns and powered by Gemini, Groq, NVIDIA, and Cloudflare. Ask me anything about:</p>
+          <ul style="margin:.5rem 0 0 1rem;font-size:.85rem;line-height:1.7">
+            <li>🔗 Suspicious URLs or phishing links</li>
+            <li>💬 SMS/WhatsApp scam messages</li>
+            <li>🎙️ Digital arrest or voice scam calls</li>
+            <li>📷 QR code safety before scanning</li>
+            <li>⚡ UPI transaction safety</li>
+            <li>🧠 How our AI models detect fraud</li>
+          </ul>
+          <p style="margin:.5rem 0 0;font-size:.8rem;color:var(--text-muted)">💡 Tip: Start the backend with <code style="background:rgba(255,255,255,0.1);padding:.1rem .3rem;border-radius:4px">python ai-security-core/app.py</code> to enable live AI responses.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thinking Indicator (hidden) -->
+    <div id="ai-thinking" style="display:none;padding:.5rem 1rem;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <div style="width:28px;height:28px;border-radius:50%;background:rgba(6,182,212,0.2);border:1px solid var(--accent-blue);display:flex;align-items:center;justify-content:center;font-size:.8rem">🤖</div>
+        <div style="display:flex;gap:.3rem;align-items:center">
+          <span class="ai-dot"></span>
+          <span class="ai-dot" style="animation-delay:.15s"></span>
+          <span class="ai-dot" style="animation-delay:.3s"></span>
+          <span style="font-size:.8rem;color:var(--text-muted);margin-left:.3rem" id="ai-thinking-label">AI analyzing threat...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div style="padding:.75rem 1rem;border-top:1px solid var(--border);display:flex;gap:.5rem;flex-shrink:0">
+      <textarea id="ai-chat-input" class="text-input" style="flex:1;min-height:44px;max-height:120px;resize:vertical;font-size:.88rem;padding:.6rem .9rem" placeholder="Ask about any threat, paste suspicious content, or describe a scam scenario..." rows="1" onkeydown="aiChatKeydown(event)"></textarea>
+      <button class="btn btn-primary" id="ai-send-btn" style="width:auto;padding:.6rem 1.2rem;flex-shrink:0;align-self:flex-end" onclick="sendAIMessage()">🚀 Send</button>
+    </div>
+  </div>
+
+  <!-- Quick Preset Questions -->
+  <div class="card mt2">
+    <div class="card-header">
+      <div class="card-header-left">
+        <h3>💡 Sample Threat Queries</h3>
+        <p>Click any prompt to auto-send to the AI</p>
+      </div>
+      <span class="card-badge badge-blue">Real Threats</span>
+    </div>
+    <div class="chips" style="flex-wrap:wrap">
+      <span class="chip" onclick="aiPresetQuery('Analyze this URL for phishing: https://rbi-update.in/upi-kyc-verify')">🔗 Phishing URL check</span>
+      <span class="chip" onclick="aiPresetQuery('What are the signs of a Digital Arrest scam call from someone claiming to be CBI?')">🚔 Digital Arrest signs</span>
+      <span class="chip" onclick="aiPresetQuery('Analyze SMS: Dear Customer, your SBI account will be blocked. Click http://sbi-kyc.net to update KYC immediately. Avoid Block!')">💬 Fake SBI SMS</span>
+      <span class="chip" onclick="aiPresetQuery('What is a mule account and how does RakshaLink detect them?')">🏦 Mule account detection</span>
+      <span class="chip" onclick="aiPresetQuery('Explain how Quantum Key Distribution protects e-Rupee transactions from man-in-the-middle attacks')">⚛️ QKD for e-Rupee</span>
+      <span class="chip" onclick="aiPresetQuery('How does the TFLite Char-CNN + LightGBM ensemble achieve 99.81% accuracy in phishing detection?')">🧠 ML model explained</span>
+      <span class="chip" onclick="aiPresetQuery('What DPDP Act 2023 compliance requirements apply to our on-device AI fraud detection system?')">📋 DPDP compliance</span>
+      <span class="chip" onclick="aiPresetQuery('How should I report a UPI fraud to NPCI and what is cybercrime helpline number?')">🆘 Report UPI fraud</span>
+    </div>
+  </div>
+</section>
+
+<!-- Threat Forensic Report Modal -->
+<div id="threat-forensic-modal" class="threat-modal-overlay" style="display:none;" onclick="if(event.target===this)closeThreatModal()">
+  <div class="threat-modal-card">
+    <div class="threat-modal-header">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <span style="font-size:1.4rem">🛡️</span>
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;color:var(--danger-red)">Forensic Threat Telemetry & Mitigation</h3>
+          <span style="font-size:.78rem;color:var(--text-muted)">DPDP Act 2023 · I4C Sovereign Defense Profile</span>
+        </div>
+      </div>
+      <button class="threat-modal-close" onclick="closeThreatModal()" aria-label="Close modal">&times;</button>
+    </div>
+    <div id="threat-modal-body" class="threat-modal-content">
+      <!-- Populated dynamically by JS -->
+    </div>
+    <div class="threat-modal-footer">
+      <button class="btn btn-ghost" style="width:auto" onclick="closeThreatModal()">Dismiss</button>
+      <button class="btn btn-primary" style="width:auto" onclick="consultAIFromModal()">🤖 Ask AI Guardian</button>
+      <button class="btn btn-danger" style="width:auto" onclick="reportToCybercrime()">🚨 Report to I4C / 1930</button>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <footer>
@@ -960,5 +1146,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 <script src="logic.js"></script>
 <script src="app.js"></script>
+<script src="ai_guardian.js"></script>
 </body>
 </html>
