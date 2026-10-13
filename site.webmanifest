@@ -1,0 +1,17 @@
+{
+  "name": "RakshaLink AI — Sovereign Threat Defense",
+  "short_name": "RakshaLink",
+  "description": "On-Device Anti-Phishing, UPI Fraud & Digital Arrest Defense Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020403",
+  "theme_color": "#00ff9d",
+  "icons": [
+    {
+      "src": "rakshalink_shield_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

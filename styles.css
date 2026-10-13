@@ -1354,6 +1354,77 @@ body {
   cursor: pointer;
 }
 
+/* ─── SECTION 8: FAQ & SEARCH ENGINE RICH SNIPPET ACCORDION ─────────── */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: rgba(3, 7, 4, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  transition: var(--transition-smooth);
+}
+
+.faq-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--emerald-glow-sm);
+}
+
+.faq-card[open] {
+  border-color: rgba(0, 255, 157, 0.4);
+  background: rgba(4, 14, 8, 0.85);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  color: var(--text-white);
+  gap: 16px;
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--emerald-neon);
+  font-weight: 300;
+  transition: transform 0.25s ease;
+}
+
+.faq-card[open] .faq-question::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.92rem;
+  color: var(--text-silver);
+  line-height: 1.7;
+}
+
+.faq-answer strong {
+  color: var(--emerald-neon);
+}
+
 /* ─── Responsive Media Queries ───────────────────────────────────────── */
 @media (max-width: 992px) {
   .hero-benchmarks-bar {

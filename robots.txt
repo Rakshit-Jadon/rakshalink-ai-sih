@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /styles.css
+Allow: /app.js
+Allow: /logic.js
+Allow: /rakshalink_shield_logo.jpg
+Allow: /rakshalink_threat_banner.jpg
+Disallow: /downloads/*.apk$
+Disallow: /downloads/*.zip$
+
+Sitemap: https://rakshalink-ai-shield.vercel.app/sitemap.xml
