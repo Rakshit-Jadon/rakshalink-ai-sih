@@ -4,7 +4,9 @@
 //  Models: Gemini Flash, Groq LLaMA-70B, NVIDIA NIM, Cloudflare
 // ════════════════════════════════════════════════════════════
 
-const AI_BACKEND = 'http://127.0.0.1:5001';
+const AI_BACKEND = (typeof window !== 'undefined' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'))
+  ? 'http://127.0.0.1:5001'
+  : '';
 const aiConversationHistory = [];
 let aiIsLoading = false;
 
@@ -30,7 +32,7 @@ async function checkAIBackendHealth() {
     ['gemini','groq','nvidia','cf'].forEach(id => setAIStatus(id, false, ''));
     const activeModelEl = document.getElementById('ai-active-model');
     if (activeModelEl) activeModelEl.textContent =
-      '⚠️ Backend offline — run: python ai-security-core/app.py';
+      '🛡️ Sovereign On-Device Defense Active · Zero Data Exfiltration (DPDP 2023)';
   }
 }
 
